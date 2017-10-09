@@ -3,8 +3,8 @@
 HOSTNAME="gcr.io"
 TAG=$1
 PROJECT_ID="bluelens-11b9b"
-IMAGE="bl-api"
-NAMESPACE="operating"
+IMAGE="bl-api-index"
+NAMESPACE="index"
 
 docker build -t $IMAGE:$TAG .
 docker tag $IMAGE:$TAG $HOSTNAME/$PROJECT_ID/$IMAGE:$TAG

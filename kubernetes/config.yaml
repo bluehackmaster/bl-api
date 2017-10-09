@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bl-api
-  namespace: operating
+  name: bl-api-index
+  namespace: index
   labels:
-    name: bl-api
+    name: bl-api-index
 spec:
   type: LoadBalancer
   ports:
@@ -12,24 +12,24 @@ spec:
       targetPort: 3000
       protocol: TCP
   selector:
-    name: bl-api
+    name: bl-api-index
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: bl-api
-  namespace: operating
+  name: bl-api-index
+  namespace: index
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         role: api
-        name: bl-api
+        name: bl-api-index
     spec:
       containers:
-      - image: gcr.io/bluelens-11b9b/bl-api:latest
-        name: bl-api
+      - image: gcr.io/bluelens-11b9b/bl-api-index:latest
+        name: bl-api-index
         ports:
         - containerPort: 3000
           name: http-server

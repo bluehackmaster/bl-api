@@ -2,9 +2,9 @@
   "kind": "Namespace",
   "apiVersion": "v1",
   "metadata": {
-    "name": "operating",
+    "name": "index",
     "labels": {
-      "name": "operating"
+      "name": "index"
     }
   }
 }

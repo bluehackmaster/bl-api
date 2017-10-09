@@ -6,7 +6,7 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-RUN apk add --update nodejs bash git mosquitto-clients
+RUN apk add --update nodejs bash
 
 COPY . /usr/src/app
 
