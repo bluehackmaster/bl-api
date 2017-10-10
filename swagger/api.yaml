@@ -1,0 +1,103 @@
+swagger: '2.0'
+info:
+  description: >-
+    This is a bl-api-index server.
+  version: 0.0.1
+  title: BlueLens Index API
+  contact:
+    email: devops@bluehack.net
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: index.bluelens.io
+basePath: /v1
+tags:
+  - name: image
+    description: image
+schemes:
+  - http
+paths:
+  /images:
+    post:
+      tags:
+        - image
+      summary: Add a new image
+      description: ''
+      operationId: addImage
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Image object that needs to be added to the db.
+          required: true
+          schema:
+            $ref: '#/definitions/ImageReq'
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: '#/definitions/ImageRes'
+        405:
+          description: Invalid input
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  ImageReq:
+    type: object
+    properties:
+      _id:
+        type: string
+      host_url:
+        type: string
+      host_code:
+        type: string
+      host_name:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      product_name:
+        type: string
+      parent_image_raw:
+        type: string
+      parent_image_mobile:
+        type: string
+      parent_image_mobile_thumb:
+        type: string
+      product_price:
+        type: string
+      currency_unit:
+        type: string
+      product_url:
+        type: string
+      product_no:
+        type: string
+      main:
+        type: integer
+      nation:
+        type: string
+  ImageRes:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      data:
+        type: object
+        properties:
+          _id:
+            type: string
+          image:
+            type: string
+externalDocs:
+  description: Find out more about BlueLens
+  url: 'http://swagger.io'
