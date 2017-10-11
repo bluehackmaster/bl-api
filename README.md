@@ -26,6 +26,20 @@ release.sh
 $ ./release.sh latest
 ```
 
+## MongoDB 
+### Connecting to the MongoDB Replica Set
+Each MongoDB Replica Set will have its own DNS address. This will take the format <pod-name>.<service-name>.
+The DNS addresses to use will be:
+
+```sh
+bl-db-image-0.bl-db-image.mongo
+bl-db-image-1.bl-db-image.mongo
+bl-db-image-2.bl-db-image.mongo
+```
+Put these in your connection url. For example:
+```sh
+mongodb://bl-db-image-0.bl-db-image.mongo bl-db-image-1.bl-db-image.mongo bl-db-image-2.bl-db-image.mongo:27017/dbname_?'
+```
 
 
 # Troubleshooting

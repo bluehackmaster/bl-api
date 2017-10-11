@@ -1,6 +1,6 @@
 var RESP = {};
 
-RESP.SUCCESS = "SUCCESS";
-RESP.FAIL = "FAIL";
+RESP.SUCCESS = 0
+RESP.FAIL = 1
 
 module.exports = RESP;
