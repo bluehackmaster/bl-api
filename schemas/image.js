@@ -3,15 +3,18 @@ var Schema = mongoose.Schema;
 // var ObjectId = Schema.Types.ObjectId;
 
 var schema = new Schema({
+  name: String,
   host_url: String,
   host_code: String,
   host_name: String,
   tags: [String],
+  format: String, //jpg, png
   product_name: String,
   parent_image_raw: String,
   parent_image_mobile: String,
   parent_image_mobile_thumb: String,
   image: String,
+  class_code: String,
   product_price: String,
   currency_unit: String,
   product_url: String,
