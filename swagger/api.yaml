@@ -101,6 +101,10 @@ definitions:
       class_code:
         type: string
         example: "n0100016"
+      bucket:
+        type: string
+      storage:
+        type: string
       product_price:
         type: string
       currency_unit:

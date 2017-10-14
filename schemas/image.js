@@ -14,6 +14,8 @@ var schema = new Schema({
   parent_image_mobile_thumb: String,
   image: String,
   class_code: String,
+  bucket: String,
+  storage: String,
   format: String, //jpg, png
   product_price: String,
   currency_unit: String,

@@ -4,6 +4,9 @@
     "MONGODB_URL_DEV": "localhost:27017",
     "DB": "bl-db-image"
   },
+  "storage": {
+    "s3": "s3"
+  },
   "s3": {
     "OBJECT_IMG_BUCKET": "bluelens-style-object"
   }
