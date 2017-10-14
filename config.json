@@ -3,5 +3,8 @@
     "MONGODB_URL": "bl-db-image-0.bl-db-image,bl-db-image-1.bl-db-image,bl-db-image-2.bl-db-image:27017",
     "MONGODB_URL_DEV": "localhost:27017",
     "DB": "bl-db-image"
+  },
+  "s3": {
+    "OBJECT_IMG_BUCKET": "bluelens-style-object"
   }
 }

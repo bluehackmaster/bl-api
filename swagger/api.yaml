@@ -33,13 +33,36 @@ paths:
           description: Image object that needs to be added to the db.
           required: true
           schema:
-            $ref: '#/definitions/ImageReq'
+            $ref: '#/definitions/Image'
       responses:
-        '200':
-          description: 200 response
+        200:
+          description: successful operation
           schema:
-            $ref: '#/definitions/ImageRes'
-        '405':
+            $ref: '#/definitions/AddImageResponse'
+        400:
+          description: Invalid input
+  /images/{imageId}:
+    get:
+      tags:
+      - image
+      summary: Get a image
+      description: ''
+      operationId: getImageById
+      produces:
+      - application/json
+      parameters:
+      - name: imageId
+        in: path
+        description: ID of Image to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Image'
+        400:
           description: Invalid input
 securityDefinitions:
   api_key:
@@ -47,7 +70,7 @@ securityDefinitions:
     name: api_key
     in: header
 definitions:
-  ImageReq:
+  Image:
     type: object
     properties:
       name:
@@ -72,12 +95,12 @@ definitions:
         type: string
       parent_image_mobile_thumb:
         type: string
-      bucket:
+      image:
         type: string
-        example: "bluelens-style-object"
+        example: "s3://bluelens-style-object/n0100016/59e17359f8375c0e9fabb1c8.jpg"
       class_code:
         type: string
-        example: "n0100001"
+        example: "n0100016"
       product_price:
         type: string
       currency_unit:
@@ -90,7 +113,7 @@ definitions:
         type: integer
       nation:
         type: string
-  ImageRes:
+  AddImageResponse:
     type: object
     properties:
       code:
@@ -104,8 +127,17 @@ definitions:
         properties:
           _id:
             type: string
-          image:
-            type: string
+  GetImageResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        description: "0: success, 1: fail"
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Image'
 externalDocs:
   description: Find out more about BlueLens
   url: 'http://bluelens.io'
